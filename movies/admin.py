@@ -8,6 +8,12 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "url")
     list_display_links = ("name",)
 
+class ReviewInline(admin.TabularInline):
+    """Отзывы на странице фильма"""
+    model = Reviews
+    extra = 1
+    readonly_fields = ("name", "email")
+
 
 admin.site.register(Genre)
 admin.site.register(Movie)
