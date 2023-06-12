@@ -46,11 +46,16 @@ class MovieAdmin(admin.ModelAdmin):
         }),
     )
 
+@admin.register(Reviews)
+class ReviewAdmin(admin.ModelAdmin):
+    """Отзывы"""
+    list_display = ("name", "email", "parent", "movie", "id")
+    readonly_fields = ("name", "email")
+
 
 admin.site.register(Genre)
-# admin.site.register(Movie)
 admin.site.register(MovieShots)
 admin.site.register(Actor)
 admin.site.register(Rating)
 admin.site.register(RatingStar)
-admin.site.register(Reviews)
+
