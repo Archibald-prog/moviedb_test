@@ -8,11 +8,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "url")
     list_display_links = ("name",)
 
+
 class ReviewInline(admin.TabularInline):
     """Отзывы на странице фильма"""
     model = Reviews
     extra = 1
     readonly_fields = ("name", "email")
+
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
@@ -46,21 +48,25 @@ class MovieAdmin(admin.ModelAdmin):
         }),
     )
 
+
 @admin.register(Reviews)
 class ReviewAdmin(admin.ModelAdmin):
     """Отзывы"""
     list_display = ("name", "email", "parent", "movie", "id")
     readonly_fields = ("name", "email")
 
+
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     """Жанры"""
     list_display = ("name", "url")
 
+
 @admin.register(Actor)
 class ActorAdmin(admin.ModelAdmin):
     """Актеры"""
     list_display = ("name", "age")
+
 
 @admin.register(MovieShots)
 class MovieShotsAdmin(admin.ModelAdmin):
@@ -70,4 +76,3 @@ class MovieShotsAdmin(admin.ModelAdmin):
 
 admin.site.register(Rating)
 admin.site.register(RatingStar)
-
