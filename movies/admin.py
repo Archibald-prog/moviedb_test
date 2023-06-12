@@ -57,10 +57,13 @@ class GenreAdmin(admin.ModelAdmin):
     """Жанры"""
     list_display = ("name", "url")
 
+@admin.register(Actor)
+class ActorAdmin(admin.ModelAdmin):
+    """Актеры"""
+    list_display = ("name", "age")
 
 
 admin.site.register(MovieShots)
-admin.site.register(Actor)
 admin.site.register(Rating)
 admin.site.register(RatingStar)
 
