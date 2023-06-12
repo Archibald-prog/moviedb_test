@@ -62,8 +62,12 @@ class ActorAdmin(admin.ModelAdmin):
     """Актеры"""
     list_display = ("name", "age")
 
+@admin.register(MovieShots)
+class MovieShotsAdmin(admin.ModelAdmin):
+    """Кадры из фильма"""
+    list_display = ("title", "movie")
 
-admin.site.register(MovieShots)
+
 admin.site.register(Rating)
 admin.site.register(RatingStar)
 
